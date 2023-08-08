@@ -31,9 +31,11 @@ const server = http.createServer(function (req, res) {
       })
   } else if (pathname === "/script.js"){
     fs.readFile("./public/script.js", 'utf8', function(err, data){
+      console.log(data)
+      console.dir(data)
       res.writeHead(200);
-      res.write(data);
-      res.end();
+      // res.write(data);
+      res.end(data);
     })
   }
 

@@ -11,9 +11,12 @@ const server = http.createServer(function (req, res) {
     if (err) return console.log(err)
 
     fs.readFile("./public/clock.html", function(err, data){
+      console.log(data)
+      console.dir(data)
       res.statusCode = 200;
       res.writeHead(200, { 'Content-Type': 'text/html' })
-      res.end(data)
+      res.write(data);
+      res.end()
     })
  
   })
